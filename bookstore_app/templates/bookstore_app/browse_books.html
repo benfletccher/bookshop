@@ -1,0 +1,18 @@
+{% extends "bookstore_app/base.html" %}
+
+{% block title %}Browse Books{% endblock %}
+
+{% block content %}
+<h2>Browse Books</h2>
+
+<div class="books-container">
+    {% for book in books %}
+    <a href="{% url 'listings_per_book' book.isbn %}" class="book-card">
+        <div class="book">
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.author }}</p>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

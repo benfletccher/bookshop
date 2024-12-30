@@ -1,0 +1,30 @@
+{% extends 'bookstore_app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Page</title>
+    <!-- Add custom CSS if needed -->
+    <link rel="stylesheet" href="{% static 'bookstore_app/account_page.css' %}">
+</head>
+<body>
+    <div class="account-container">
+        <h1>Account Information</h1>
+        <div class="account-details">
+            <p><strong>Name:</strong> {{ cadet.first_name }} {{ cadet.last_name }}</p>
+            <p><strong>Email:</strong> {{ cadet.email }}</p>
+            <p><strong>Join Date:</strong> {{ cadet.date_joined|date:"F j, Y" }}</p>
+        </div>
+
+        <div class="button-group">
+            <a href="{% url 'logout' %}" class="btn logout-btn">Logout</a>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

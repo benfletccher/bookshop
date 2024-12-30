@@ -1,0 +1,38 @@
+/* Styling for the welcome link
+.welcome-link {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+.welcome-link:hover {
+    text-decoration: underline;
+}
+*/
+
+/* Centered container for the main content */
+.landing-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Button group styling */
+.button-group {
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}

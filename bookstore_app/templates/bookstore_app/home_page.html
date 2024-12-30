@@ -1,0 +1,48 @@
+{% extends 'bookstore_app/base.html' %}
+
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadet Book Trading Site</title>
+    <link rel="stylesheet" href="{% static 'bookstore_app/home_page.css' %}">
+</head>
+<body>
+    <div class="landing-container">
+        <h1>Welcome Back, {{ cadet.first_name }}!</h1>
+
+        <!-- Introductory Section -->
+        <div class="intro-section">
+            <p>Streamline your book exchange experience with the Cadet Book Trading Site. No more struggling to find the books you need or wasting time holding onto books you'll never use again. We make it easy for cadets to connect and trade textbooks efficiently across the Corps.</p>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2>What You Can Do:</h2>
+            <ul>
+                <li><strong>Browse Listings:</strong> Quickly find textbooks for your upcoming semester.</li>
+                <li><strong>Create Listings:</strong> Sell or trade the books you no longer need.</li>
+                <li><strong>Add New Books:</strong> Expand our system by adding books that aren't listed yet.</li>
+                <li><strong>Connect with Cadets:</strong> Make trades seamless by communicating directly with fellow cadets.</li>
+            </ul>
+        </div>
+
+        <!-- Call-to-Action Section -->
+        <div class="cta-section">
+            <h2>Get Started Today!</h2>
+            <p><a href="{% url 'browse_books' %}" class="cta-button">Browse Books</a></p>
+            <p><a href="{% url 'new_listing' %}" class="cta-button">Create a Listing</a></p>
+        </div>
+
+        <!-- Image Section -->
+        <div class="image-section">
+            <img src="{% static 'bookstore_app/home_page.png' %}" alt="Two cadets exchanging a textbook for money" class="homepage-image">
+            <p class="image-caption">"The timeless art of book trading: where knowledge meets economics."</p>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

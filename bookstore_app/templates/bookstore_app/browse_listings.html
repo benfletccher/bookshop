@@ -1,0 +1,37 @@
+{% extends "bookstore_app/base.html" %}
+
+{% block title %}Browse Listings{% endblock %}
+
+{% block content %}
+<div class="listings-container">
+    <h1>Browse Listings</h1>
+    <p>Find all the listings for books here!</p>
+
+    <table class="listings-table">
+        <thead>
+            <tr>
+                <th>Price</th>
+                <th>Seller</th>
+                <th>Email</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Course</th>
+                <th>Date of Listing</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for listing in listings %}
+            <tr>
+                <td>{{ listing.price }}</td>
+                <td>{{ listing.cadet }}</td>
+                <td>{{ listing.cadet.email }}</td>
+                <td>{{ listing.book.title }}</td>
+                <td>{{ listing.book.author }}</td>
+                <td>{{ listing.book.course.course_id }}</td>
+                <td>{{ listing.date_of_listing }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

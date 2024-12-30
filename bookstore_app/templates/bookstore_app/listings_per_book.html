@@ -1,0 +1,37 @@
+{% extends "bookstore_app/base.html" %}
+{% load static %}
+
+{% block title %}Listings for {{ Listings.0.book.title }}{% endblock %}
+
+
+{% block content %}
+<div class="listings-container">
+    <h1>Listings for "{{ book.title }}"</h1>
+    <h3>Author: {{ Listings.0.book.author }}</h3>
+
+    {% if Listings %}
+    <table class="listings-table">
+        <thead>
+            <tr>
+                <th>Price</th>
+                <th>Date of Listing</th>
+                <th>Seller</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for listing in Listings %}
+            <tr>
+                <td>${{ listing.price }}</td>
+                <td>{{ listing.date_of_listing }}</td>
+                <td>{{ listing.cadet.first_name }} {{ listing.cadet.last_name }}</td>
+                <td>{{ listing.cadet.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No listings available for this book at the moment.</p>
+    {% endif %}
+</div>
+{% endblock %}

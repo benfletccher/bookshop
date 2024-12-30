@@ -1,0 +1,18 @@
+{% extends "bookstore_app/base.html" %}
+
+{% block content %}
+  <div class="new-book-container">
+    <h2>New Listing Submission</h2>
+    <form method="POST">
+      {% csrf_token %}
+      {{ new_listing.as_p }}
+      <button type="submit">Submit</button>
+    </form>
+
+    {% if newListing %}
+      <div class="success-message">
+        <strong>Success!</strong> Your new listing has been added.
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

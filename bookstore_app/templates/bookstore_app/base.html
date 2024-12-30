@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cadet Book Trading Site{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bookstore_app/main.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Top banner with title and picture logo -->
+    <header class="top-banner">
+        <div class="banner-content">
+            <div class="logo-container">
+                <img src="{% static 'bookstore_app/logo.png' %}" alt="Cadet Book Trading Site Logo" class="logo">
+                <h1>Cadet Book Trading Site</h1>
+            </div>
+
+        <!-- Navigation links -->
+        <nav class="navbar">
+            <div class="navbar-left">
+                <a href="{% url 'home_page' %}">Home</a>
+                <a href="{% url 'browse_listings' %}">Browse Listings</a>
+                <a href="{% url 'browse_books' %}">Browse Books</a>
+                <a href="{% url 'new_book' %}">Add Book</a>
+                <a href="{% url 'new_listing' %}">Add Listing</a>
+            </div>
+            {% if user.is_authenticated %}
+                <div class="auth-links">
+                    <a href="{% url 'account_page' %}" class="welcome-link">Welcome, {{ user.first_name }}!</a>
+                    <a href="{% url 'logout' %}"class="welcome-link">Logout</a>
+                </div>
+            {% else %}
+                <div class="auth-links">
+                    <a href="{% url 'create_account' %}" class = "welcome-link">Create Account</a>
+                    <a href="{% url 'login' %}"class = "welcome-link">Login</a>
+                </div>
+            {% endif %}
+        </nav>
+    </header>
+
+    <!-- Content block for child templates -->
+    <main>
+        {% block content %}
+        <!-- Page-specific content will go here -->
+        <section class="intro-section">
+            <h2>Welcome to Cadet Book Trading!</h2>
+            <p>The easiest way to exchange textbooks within the Corps. Join now to browse available books or list your own to trade with fellow cadets.</p>
+        </section>
+
+        <section class="features-section">
+            <h3>Why Join?</h3>
+            <ul>
+                <li>Find affordable textbooks for your classes.</li>
+                <li>Trade your old books and save money.</li>
+                <li>Connect with other cadets in a streamlined way.</li>
+            </ul>
+        </section>
+
+        <section class="cta-section">
+            <p><a href="{% url 'create_account' %}" class="cta-button">Get Started</a></p>
+            <p><a href="{% url 'login' %}" class="cta-button">Already a Member? Login</a></p>
+        </section>
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Cadet Book Trading Site</p>
+    </footer>
+</body>
+</html>
